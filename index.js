@@ -13,7 +13,7 @@ function handleClickBtn(target) {
     const cardPrice = target.childNodes[3].childNodes[5].innerText.split(" ")[0]
     total = parseFloat(total) + parseFloat(cardPrice)
     const tk = document.getElementById('tk')
-    const totalPrice = document.getElementById('total-price').innerText = total
+    const totalPrice = document.getElementById('total-price').innerText = total.toFixed(2)
     totalPrice.innerText = total + tk
 
     // discount Selection
@@ -24,15 +24,23 @@ function handleClickBtn(target) {
         const couponFieldName = couponField.innerText
         const couponNumber = '0.2'
         const discountContainer = document.getElementById('discount-container')
-        total = parseFloat(totalPrice) * parseFloat(couponNumber)
-        const totalDiscount = document.getElementById('discount-container').innerText = total.toFixed(2)
 
         // total Selection
-    
-        const totalResult = document.getElementById('total-result')
-        const totalResultNumber = totalResult.innerText
-        total = parseFloat(totalPrice) - parseFloat(totalDiscount)
-        const resultOfTotal = document.getElementById('total-result').innerText = total.toFixed(2)
+
+        if (totalPrice >= 200) {
+            total = parseFloat(totalPrice) * parseFloat(couponNumber)
+            const totalDiscount = document.getElementById('discount-container').innerText = total.toFixed(2)
+            const totalResult = document.getElementById('total-result')
+            const totalResultNumber = totalResult.innerText
+            total = parseFloat(totalPrice) - parseFloat(totalDiscount)
+            const resultOfTotal = document.getElementById('total-result').innerText = total.toFixed(2)
+
+        }
+
+
+        
+
+
 
     })
 
@@ -52,8 +60,8 @@ function handleClickBtn(target) {
 
 
 
-    
-    
+
+
 
 
 
@@ -62,7 +70,7 @@ function handleClickBtn(target) {
 
 
 
-           //  Coupon Apply Btn condition 
+//  Coupon Apply Btn condition 
 
 
 
